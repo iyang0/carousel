@@ -35,3 +35,20 @@ it("works when you click on the right arrow", function() {
     container.querySelector('img[alt="Photo by Pratik Patel on Unsplash"]')
   ).toBeInTheDocument();
 });
+
+it("should go to previous image when clicking left chevron", function(){
+  const { container } = render(<Carousel />);
+
+  const rightArrow = container.querySelector(".fa-chevron-circle-right");
+  fireEvent.click(rightArrow);
+  const leftArrow = container.querySelector(".fa-chevron-circle-left");
+  fireEvent.click(leftArrow);
+
+  expect(
+    container.querySelector("small")
+  ).toContainHTML("Image 1 of 3.");
+  expect(
+    container.querySelector('img[alt="Photo by Richard Pasquarella on Unsplash"]')
+  ).toBeInTheDocument();
+
+})
