@@ -51,13 +51,12 @@ it("should go to previous image when clicking left chevron", function(){
     container.querySelector('img[alt="Photo by Richard Pasquarella on Unsplash"]')
   ).toBeInTheDocument();
 
-})
+});
 
 it("should hide chevrons on ends of list of images", function(){
-  const { container, debug } = render(<Carousel />);
+  const { container } = render(<Carousel />);
 
   const rightArrow = container.querySelector(".fa-chevron-circle-right");
-  const leftArrow = container.querySelector(".fa-chevron-circle-left");
 
   expect(
     container.querySelector(".fa-chevron-circle-left")
@@ -70,4 +69,4 @@ it("should hide chevrons on ends of list of images", function(){
     container.querySelector(".fa-chevron-circle-right")
   ).not.toBeInTheDocument();
 
-})
+});
